@@ -11,6 +11,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@pact-foundation/pact": "^9.11.0",
+    "@pact-foundation/pact-node": "^10.9.5",
     "jest": "^26.0.1",
     "nock": "^12.0.3"
   },
