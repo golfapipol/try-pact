@@ -54,5 +54,19 @@ describe("Service B Test with Pact", () => {
             expect(result.user.name).toEqual('pact')
         })
         
+        it('Should not found user', async () => {
+            await provider.addInteraction({
+                state: 'User demo not found',
+                uponReceiving: 'a request for user JSON data',
+                withRequest: {
+                    method: 'GET',
+                    path: '/user/demo'
+                },
+                willRespondWith: {
+                    status: 404
+                }
+            })
+            await expect(service.fetchUser('demo')).rejects.toThrow("Not Found");
+        })
     })
 })
